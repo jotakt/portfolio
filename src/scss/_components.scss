@@ -1,0 +1,140 @@
+@use 'variables' as *;
+
+// ─── Buttons ─────────────────────────────────────────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+
+  &--primary {
+    background: $accent;
+    border: $border-md;
+    box-shadow: $shadow-md;
+    padding: 16px 36px;
+    font-size: 1.25rem;
+    color: $black;
+
+    &:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: $shadow-lg;
+    }
+
+    &:active {
+      transform: translate(2px, 2px);
+      box-shadow: none;
+    }
+  }
+
+  &--ghost {
+    border: $border;
+    padding: 12px 28px;
+    color: $black;
+    background: transparent;
+
+    &:hover { background: $black; color: $white; }
+  }
+
+  &__arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    .btn:hover & { transform: translateX(4px); }
+  }
+}
+
+// ─── Footer ──────────────────────────────────────────────────────────────────
+.footer {
+  background: $bg-dark;
+  color: $white;
+  border-top: $border-xl;
+  border-top-color: $accent;
+
+  &__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: $space-xl $space-md;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+
+    @media (min-width: $bp-md) {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  }
+
+  &__headline {
+    font-family: $font-display;
+    font-style: italic;
+    font-size: clamp(4rem, 12vw, 11rem);
+    line-height: 0.88;
+    letter-spacing: -0.03em;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+    text-align: right;
+
+    a {
+      font-family: $font-heading;
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      transition: color 0.15s ease;
+
+      &:hover { color: $accent; }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    margin-top: $space-lg;
+    padding-top: $space-md;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+
+    @media (min-width: $bp-md) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+  }
+
+  &__tech-badge {
+    display: flex;
+    gap: $space-sm;
+    flex-wrap: wrap;
+
+    span {
+      font-size: 0.65rem;
+      font-family: $font-heading;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.3);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 4px 10px;
+    }
+  }
+}

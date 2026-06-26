@@ -1,0 +1,368 @@
+@use 'variables' as *;
+
+// ─── Shared Section Layout ───────────────────────────────────────────────────
+.section {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: $space-xl $space-md;
+  border-top: $border-md;
+
+  &__label {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: $muted;
+    margin-bottom: $space-md;
+
+    &::before {
+      content: '//';
+      margin-right: 6px;
+      color: $accent-2;
+    }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: $space-lg;
+  }
+}
+
+// ─── About ───────────────────────────────────────────────────────────────────
+.about {
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+
+    @media (min-width: $bp-lg) {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+
+  &__card {
+    background: $accent;
+    border: $border-md;
+    box-shadow: $shadow-md;
+    padding: $space-lg;
+
+    h3 {
+      font-family: $font-heading;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: $space-md;
+      color: $muted;
+    }
+
+    p {
+      font-family: $font-heading;
+      font-weight: 700;
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+  }
+
+  &__text {
+    p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: #3a3a38;
+      margin-bottom: $space-sm;
+
+      &:last-child { margin-bottom: 0; }
+    }
+  }
+
+  &__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-sm;
+  margin-top: $space-lg;
+  border-top: $border;
+  padding-top: $space-md;
+
+  .about__stat-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  dt {
+    font-family: $font-display;
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  dd {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $muted;
+    margin-left: 0; /* Zera o recuo padrão do navegador */
+  }
+}
+}
+
+// ─── Stack ───────────────────────────────────────────────────────────────────
+.stack {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: $border-md;
+
+    @media (min-width: $bp-sm) { grid-template-columns: repeat(3, 1fr); }
+    @media (min-width: $bp-lg) { grid-template-columns: repeat(5, 1fr); }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: $space-lg $space-md;
+    border: $border;
+    cursor: default;
+    transition: background 0.15s ease, transform 0.15s ease;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      background: $accent;
+      transform: scale(1.04);
+      z-index: 1;
+    }
+
+    &--featured {
+      background: $black;
+      color: $white;
+
+      &:hover {
+        background: $accent;
+        color: $black;
+      }
+    }
+
+    &-name {
+      font-family: $font-heading;
+      font-weight: 700;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    &-desc {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: $muted;
+      text-align: center;
+
+      .stack__item--featured & { color: rgba(255,255,255,0.5); }
+      .stack__item--featured:hover & { color: $muted; }
+    }
+  }
+}
+
+// ─── Projects ────────────────────────────────────────────────────────────────
+.projects {
+  &__terminal {
+    background: $bg-dark;
+    border: $border-md;
+    box-shadow: $shadow-lg;
+    overflow: hidden;
+  }
+
+  &__terminal-bar {
+    background: #1a1a1a;
+    border-bottom: $border;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+
+      &:nth-child(1) { background: #FF5F57; }
+      &:nth-child(2) { background: #FFBD2E; }
+      &:nth-child(3) { background: #28CA41; }
+    }
+
+    &-path {
+      margin-left: 12px;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      font-family: $font-mono;
+    }
+  }
+
+  &__terminal-body {
+    padding: $space-lg;
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+  }
+
+  &__item {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: $space-lg;
+    cursor: pointer;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    &-cmd {
+      color: $accent;
+      font-size: 0.875rem;
+      margin-bottom: 10px;
+      font-family: $font-mono;
+    }
+
+    &-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: $space-sm;
+      flex-wrap: wrap;
+    }
+
+    &-title {
+      font-family: $font-heading;
+      font-weight: 700;
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      color: $white;
+      line-height: 1.2;
+    }
+
+    &-status {
+      font-size: 0.7rem;
+      font-family: $font-heading;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border: 2px solid;
+      white-space: nowrap;
+
+      &--building {
+        color: #FFBD2E;
+        border-color: #FFBD2E;
+      }
+
+      &--ready {
+        color: #28CA41;
+        border-color: #28CA41;
+      }
+    }
+
+    &-desc {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.875rem;
+      line-height: 1.7;
+      margin-top: 10px;
+    }
+
+    &-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: $space-sm;
+    }
+
+    &-tag {
+      font-size: 0.7rem;
+      font-family: $font-heading;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 3px 10px;
+    }
+  }
+
+  &__more {
+    color: rgba(255,255,255,0.3);
+    font-size: 0.875rem;
+    font-style: italic;
+  }
+}
+
+// ─── Contact ─────────────────────────────────────────────────────────────────
+.contact {
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-sm;
+
+    @media (min-width: $bp-md) { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: $space-lg;
+    border: $border-md;
+    box-shadow: $shadow-md;
+    background: $white;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    min-height: 200px;
+
+    &:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: $shadow-lg;
+      background: $accent;
+    }
+
+    &--dark {
+      background: $bg-dark;
+      color: $white;
+
+      &:hover {
+        background: $accent;
+        color: $black;
+      }
+    }
+
+    &-label {
+      font-size: 0.7rem;
+      font-family: $font-heading;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: $muted;
+
+      .contact__card--dark & { color: rgba(255,255,255,0.4); }
+      .contact__card--dark:hover & { color: $muted; }
+    }
+
+    &-name {
+      font-family: $font-display;
+      font-size: 3rem;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    &-arrow {
+      font-size: 2rem;
+      line-height: 1;
+      align-self: flex-end;
+    }
+  }
+}

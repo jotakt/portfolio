@@ -1,0 +1,148 @@
+@use 'variables' as *;
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: $bg;
+  border-bottom: $border-md;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5rem;
+    padding: 0 $space-md;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+
+    span {
+      display: inline-block;
+      background: $black;
+      color: $accent;
+      padding: 2px 6px;
+    }
+  }
+
+  &__links {
+    display: none;
+    gap: $space-md;
+    align-items: center;
+    font-family: $font-heading;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    @media (min-width: $bp-md) {
+      display: flex;
+    }
+
+    a {
+      position: relative;
+      padding: 4px 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0;
+        width: 0; height: 2px;
+        background: $black;
+        transition: width 0.2s ease;
+      }
+
+      &:hover::after { width: 100%; }
+    }
+  }
+
+  &__cta {
+    background: $accent;
+    border: $border;
+    box-shadow: $shadow-sm;
+    padding: 8px 20px;
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: box-shadow 0.1s ease, transform 0.1s ease;
+
+    &:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: $shadow-md;
+    }
+
+    &:active {
+      transform: translate(2px, 2px);
+      box-shadow: none;
+    }
+  }
+
+  &__hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+
+    @media (min-width: $bp-md) { display: none; }
+
+    span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      background: $black;
+      transition: all 0.2s ease;
+    }
+  }
+
+  // Mobile menu state
+  &--open &__hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  &--open &__hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  &--open &__hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  width: 100%;
+  background: $bg;
+  border-bottom: $border-md;
+  z-index: 99;
+  padding: $space-md;
+  flex-direction: column;
+  gap: $space-sm;
+
+  &--open { display: flex; }
+
+  a {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    border-bottom: $border;
+    padding-bottom: $space-sm;
+    display: block;
+
+    &:last-child { border-bottom: none; }
+  }
+}

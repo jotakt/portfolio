@@ -1,0 +1,37 @@
+// ─── Color System ───────────────────────────────────────────────────────────
+$bg:          #F0EDE8;       // warm off-white
+$bg-dark:     #0D0D0D;       // near-black
+$white:       #FFFFFF;
+$black:       #0D0D0D;
+$accent:      #E8FF1A;       // electric yellow
+$accent-2:    #FF3C3C;       // punch red
+$muted:       #7A7775;       // warm grey
+
+// ─── Typography ─────────────────────────────────────────────────────────────
+$font-display:  'DM Serif Display', serif;
+$font-heading:  'Space Grotesk', sans-serif;
+$font-mono:     'Space Mono', monospace;
+
+// ─── Spacing ─────────────────────────────────────────────────────────────────
+$space-xs:   0.5rem;
+$space-sm:   1rem;
+$space-md:   2rem;
+$space-lg:   4rem;
+$space-xl:   8rem;
+$space-2xl:  12rem;
+
+// ─── Border ──────────────────────────────────────────────────────────────────
+$border:     3px solid $black;
+$border-md:  5px solid $black;
+$border-xl:  8px solid $black;
+
+// ─── Shadow ──────────────────────────────────────────────────────────────────
+$shadow-sm:  4px 4px 0 $black;
+$shadow-md:  8px 8px 0 $black;
+$shadow-lg:  14px 14px 0 $black;
+
+// ─── Breakpoints ─────────────────────────────────────────────────────────────
+$bp-sm:  640px;
+$bp-md:  768px;
+$bp-lg:  1024px;
+$bp-xl:  1280px;

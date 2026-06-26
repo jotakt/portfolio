@@ -1,0 +1,106 @@
+@use 'variables' as *;
+
+.hero {
+  padding-top: 8rem;
+  padding-bottom: $space-xl;
+  padding-left: $space-md;
+  padding-right: $space-md;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  &__badge {
+    display: inline-block;
+    background: $accent-2;
+    color: $white;
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 6px 14px;
+    margin-bottom: $space-md;
+    border: $border;
+
+    // Blinking dot
+    &::before {
+      content: '●';
+      margin-right: 8px;
+      animation: blink 1.2s step-end infinite;
+    }
+  }
+
+  &__name {
+    font-family: $font-display;
+    font-size: clamp(5rem, 18vw, 18rem);
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    margin-bottom: $space-lg;
+    color: $black;
+
+    // Italic second line
+    em {
+      font-style: italic;
+      color: $muted;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+
+    @media (min-width: $bp-md) {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 4vw, 3.5rem);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    border-left: $border-xl;
+    padding-left: $space-sm;
+    line-height: 1.1;
+  }
+
+  &__side {
+    max-width: 400px;
+
+    p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: $muted;
+      margin-bottom: $space-md;
+    }
+  }
+
+  &__scroll-hint {
+    display: none;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $muted;
+    margin-top: $space-xl;
+
+    @media (min-width: $bp-md) { display: flex; }
+
+    &::before {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: $muted;
+    }
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}

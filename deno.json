@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "dev": "deno run --allow-net --allow-read --watch server.ts",
+    "start": "deno run --allow-net --allow-read server.ts",
+    "build:elm": "elm-land build",
+    "build:scss": "npx sass src/scss/main.scss static/styles.css",
+    "build": "deno task build:elm && deno task build:scss"
+  },
+  "imports": {
+    "@std/http": "jsr:@std/http@^1.1.1"
+  }
+}
