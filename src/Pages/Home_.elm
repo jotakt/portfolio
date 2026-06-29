@@ -321,12 +321,19 @@ projects =
       , tags = [ "Elm", "Deno", "TypeScript", "Frontend" ]
       , link = "https://portfolio-rute.vercel.app"
       }
-    , { cmd = "$ python deploy_manager.py"
-      , title = "Local CI/CD Pipeline Manager"
-      , desc = "Ferramenta em Python com interface gráfica (PySimpleGUI) para simulação e automação de rotinas de CI/CD, gerenciando repositórios Git, builds Docker e deploys em Kubernetes."
+    , { cmd = "$ deno task dev"
+      , title = "Vault API"
+      , desc = "Cofre pessoal para conhecimento técnico, permitindo salvar comandos, snippets, links e notas com organização por tags, filtros por tipo e busca textual."
       , status = Building
-      , tags = [ "Python", "CI/CD", "PySimpleGUI", "Automation" ]
-      , link = "https://github.com/jotamath/auto_deploy"
+      , tags = [ "Deno", "Hono", "TypeScript", "Deno KV" ]
+      , link = "https://github.com/jotamath/vault-api"
+      }
+    , { cmd = "$ deno task dev"
+      , title = "Hookcheck"
+      , desc = "Ferramenta para depurar integrações com webhooks, exibindo headers, query params e payloads em tempo real, com suporte a relay e histórico de encaminhamentos."
+      , status = Building
+      , tags = [ "Deno", "Fresh", "TypeScript", "Deno KV", "SSE" ]
+      , link = "https://hookcheck.joma.deno.net/"
       }
     ]
 
